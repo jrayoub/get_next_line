@@ -4,7 +4,7 @@ OBJ_FILES	=	$(SRC:.c=.o)
 RM 			= rm -rf
 
 NAME		= get_next_line.a
-
+# CFLAGS		= -Wall -Wextra -Werror -I .
 
 $(NAME): $(OBJ_FILES)
 	ar -crs $(NAME) $(OBJ_FILES)
