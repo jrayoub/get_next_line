@@ -6,6 +6,8 @@ char	*cpy_enl(char *holder)
 	char	*line;
 
 	i = 0;
+	if (!holder)
+		return (NULL);
 	while (holder[i] && holder[i++] != '\n')
 		;
 	line = gt_calloc(i, sizeof(char));
@@ -31,10 +33,9 @@ char	*get_next_line(int fd)
 {
 	static char *holder;
 	char *cursor;
-	char *line;
-	cursor = malloc((BUFFER_SIZE + 1) * sizeof(char));
-
 	ssize_t i;
+
+	cursor = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	i = 1;
 	if (gt_strchr(holder, '\n'))
 		return (cpy_enl(holder));
@@ -49,6 +50,7 @@ char	*get_next_line(int fd)
 		cursor[i] = 0;
 		holder = gt_strjoin(holder, cursor);
 	}
-	line = cpy_enl(holder);
-	return ((char *)line);
+	if (i == 0)
+		return (NULL);
+	return (cpy_enl(holder));
 }

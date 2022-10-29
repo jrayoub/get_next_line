@@ -1,4 +1,4 @@
-#include "src/get_next_line.h"
+#include "get_next_line.h"
 
 int	main(void)
 {
@@ -8,8 +8,11 @@ int	main(void)
 
 	i = 0;
 	fd = fileno(fopen("./test.txt", "r"));
+	printf("fd : %d", fd);
 	printf("BUFFER_SIZE '%d'\n\n\n", BUFFER_SIZE);
-	while (i++ < 7)
-		printf("value is '%s'\n\n\n", get_next_line(fd));
+	do
+	{
+		printf("value is '%s'\n\n\n", (s = get_next_line(fd)));
+	} while (s != 0);
 	return (0);
 }

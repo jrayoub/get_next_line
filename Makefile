@@ -1,4 +1,4 @@
-SRC = src/get_next_line_utils.c src/get_next_line.c
+SRC = get_next_line_utils.c get_next_line.c
 
 OBJ_FILES	=	$(SRC:.c=.o)
 RM 			= rm -rf

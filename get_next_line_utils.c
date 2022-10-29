@@ -85,6 +85,7 @@ char	*gt_strjoin(char *s1, char *s2)
 	while (s2[j])
 		ns[i++] = s2[j++];
 	ns[i] = '\0';
+	free(s1);
 	return (ns);
 }
 
