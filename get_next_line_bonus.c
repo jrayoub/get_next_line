@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitouna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 00:28:54 by aaitouna          #+#    #+#             */
-/*   Updated: 2022/11/02 00:28:56 by aaitouna         ###   ########.fr       */
+/*   Created: 2022/11/02 00:28:39 by aaitouna          #+#    #+#             */
+/*   Updated: 2022/11/02 00:28:40 by aaitouna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_cur_line(char *holder)
 {
@@ -76,28 +76,28 @@ void	on_error(char *cursor, char *holder)
 
 char	*get_next_line(int fd)
 {
-	static char		*holder;
+	static char		*holder[1024];
 	char			*cursor;
 	char			*line;
 	ssize_t			reader;
 
 	reader = 1;
 	cursor = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	while (!gt_strchr(holder, '\n') && reader != 0)
+	while (!gt_strchr(holder[fd], '\n') && reader != 0)
 	{
 		reader = read(fd, cursor, BUFFER_SIZE);
 		if (reader == -1)
 		{
-			on_error(cursor, holder);
-			holder = NULL;
+			on_error(cursor, holder[fd]);
+			holder[fd] = NULL;
 			return (NULL);
 		}
 		cursor[reader] = 0;
 		if (reader != 0)
-			holder = gt_strjoin(holder, cursor);
+			holder[fd] = gt_strjoin(holder[fd], cursor);
 	}
 	free(cursor);
-	line = get_cur_line(holder);
-	holder = get_n_holder(holder);
+	line = get_cur_line(holder[fd]);
+	holder[fd] = get_n_holder(holder[fd]);
 	return (line);
 }

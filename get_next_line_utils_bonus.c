@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitouna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 00:29:20 by aaitouna          #+#    #+#             */
-/*   Updated: 2022/11/02 00:29:22 by aaitouna         ###   ########.fr       */
+/*   Created: 2022/11/02 00:28:25 by aaitouna          #+#    #+#             */
+/*   Updated: 2022/11/02 00:28:26 by aaitouna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	gt_strlen(const char *c)
 {
