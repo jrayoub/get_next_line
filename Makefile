@@ -4,10 +4,10 @@ OBJ_FILES	=	$(SRC:.c=.o)
 RM 			= rm -rf
 
 NAME		= get_next_line.a
-# CFLAGS		= -Wall -Wextra -Werror -I .
+CFLAGS		= -Wall -Wextra -Werror -I .
 
 $(NAME): $(OBJ_FILES)
-	ar -crs $(NAME) $(OBJ_FILES)
+	ar rc  $(NAME) $(OBJ_FILES)
 
 all: $(NAME)
 
@@ -17,4 +17,6 @@ clean :
 fclean :
 	$(RM) $(OBJ_FILES) $(NAME)
 
-re : $(clean) $(NAME)
+re : fclean $(NAME)
+
+#.PHONY : fclean clean re
