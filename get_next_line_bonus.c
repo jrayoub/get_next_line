@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   leak_finder.c                              :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitouna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/leak_finder.h"
+#include "get_next_line_bonus.h"
 
 char	*get_cur_line(char *holder)
 {
@@ -76,7 +76,7 @@ void	on_error(char *cursor, char *holder)
 
 char	*get_next_line(int fd)
 {
-	static char		*holder[1024];
+	static char		*holder[OPEN_MAX];
 	char			*cursor;
 	char			*line;
 	ssize_t			reader;

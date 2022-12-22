@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/leak_finder.h"
+#include "get_next_line_bonus.h"
 
 size_t	gt_strlen(const char *c)
 {
