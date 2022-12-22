@@ -1,30 +1,12 @@
-SRC = get_next_line_utils.c get_next_line.c
-B_SRC = get_next_line_utils_bonus.c get_next_line_bonus.c
+src_files = functions/ft_strlen.c functions/ft_strnstr.c functions/get_next_line.c functions/get_next_line_utils.c main.c
 
-OBJ_FILES	=	$(SRC:.c=.o)
+objects = $(src_files:.c=.o)
 
-B_OBJ_FILES	=	$(B_SRC:.c=.o)
+NAME = ALLOCATER
 
-RM 			= rm -rf
+clean: 
+	rm $(objects)
 
-NAME		= get_next_line.a
+run : $(objects)
+	gcc $(objects) -fsanitize=address -g -o $(NAME) && rm $(objects) && ./$(NAME)
 
-CFLAGS		= -Wall -Wextra -Werror
-
-$(NAME): $(OBJ_FILES)
-	ar rc  $(NAME) $(OBJ_FILES)
-
-all: $(NAME)
-
-bonus: $(OBJ_FILES) $(B_OBJ_FILES)
-	ar rc $(NAME) $(OBJ_FILES) $(B_OBJ_FILES)
-
-clean :
-	$(RM) $(OBJ_FILES) $(B_OBJ_FILES)
-
-fclean : clean
-	$(RM) $(NAME)
-
-re : fclean $(NAME)
-
-#.PHONY : fclean clean re

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   leak_finder.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitouna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef LEAK_FINDER
+# define LEAK_FINDER
 
 # include <limits.h>
 # include <stdint.h>
@@ -19,9 +19,11 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <execinfo.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 500
 # endif
 
 char	*get_next_line(int fd);
@@ -29,5 +31,7 @@ size_t	gt_strlen(const char *c);
 void	*gt_calloc(size_t nmemb, size_t size);
 char	*gt_strchr(const char *s, int c);
 char	*gt_strjoin(char *s1, char *s2);
-
+size_t	ft_strlen(const char *c);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+void    *my_malloc(size_t size, const char *file, const char *function, int line);
 #endif
